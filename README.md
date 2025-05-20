@@ -70,8 +70,8 @@ rasa shell
 ```
 
 4. Enable my sql connector in enpoints.yml
-5
-. Install mysql connector
+   
+5. Install mysql connector
 ```bash
 pip install mysql connector
 ```
