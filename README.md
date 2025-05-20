@@ -27,3 +27,29 @@ A conversational AI chatbot built using [Rasa Open Source](https://rasa.com/) to
 ├── testing (rouge and bert score testing)/
 │ ├── rouge_bert.py
 │ ├── rouge_bert.csv
+
+
+
+---
+
+## 🚀 Features
+
+- 🔍 Train search and schedule
+- 💺 Seat availability and train types
+- 💸 Fare inquiry
+- 🧾 PNR status check
+- 🍱 Food and 📶 Wi-Fi availability
+- 🙋 Complaint registration and refund policies
+- 🤖 Custom action server using Gemini API for dynamic SQL generation
+- 🧠 Fuzzy search for station names
+
+---
+
+## 🛠️ Installation & Setup
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/A-Prototype-Chatbot-Application-for-Railway-Passenger-Support.git
+cd A-Prototype-Chatbot-Application-for-Railway-Passenger-Support
+
