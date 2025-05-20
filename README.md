@@ -50,6 +50,8 @@ A conversational AI chatbot built using [Rasa Open Source](https://rasa.com/) to
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/A-Prototype-Chatbot-Application-for-Railway-Passenger-Support.git
+git clone https://github.com/rahul25093/A-Prototype-Chatbot-Application-for-Railway-Passenger-Support.git
 cd A-Prototype-Chatbot-Application-for-Railway-Passenger-Support
+
+Create and activate a virtual environment
 
