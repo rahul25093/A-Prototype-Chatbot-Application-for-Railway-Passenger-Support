@@ -53,5 +53,38 @@ A conversational AI chatbot built using [Rasa Open Source](https://rasa.com/) to
 git clone https://github.com/rahul25093/A-Prototype-Chatbot-Application-for-Railway-Passenger-Support.git
 cd A-Prototype-Chatbot-Application-for-Railway-Passenger-Support
 
-Create and activate a virtual environment
+```
+2. Create and activate a virtual environment
+
+```bash
+python -m venv rasa_env
+.\rasa_env\Scripts\Activate
+```
+
+3. Install dependencies
+
+```bash
+pip intall rasa
+rasa train
+rasa shell
+```
+
+4. Enable my sql connector in enpoints.yml
+5
+. Install mysql connector
+```bash
+pip install mysql connector
+```
+
+6. For running chatbot in frontend
+```bash
+rasa run --enable-api
+rasa run --enable-api --cors "*" --debug
+```
+
+7. For testing
+```bash
+python rouge_bert.py 
+python intent.py 
+```
 
