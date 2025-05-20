@@ -1,0 +1,179 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - thank_you
+  - ask_capabilities
+  - ask_train_status:
+      use_entities:
+        - train_number
+  - ask_pnr_status:
+      use_entities:
+        - pnr_number
+  - find_trains:
+      use_entities:
+        - from_location
+        - to_location
+  - ask_train_fare:
+      use_entities:
+        - train_number
+        - travel_class
+        - from_location # Contextual
+        - to_location   # Contextual
+  - ask_booking_history:
+      use_entities:
+        - user_id
+  - cancel_ticket:
+      use_entities:
+        - pnr_number_to_cancel
+  - ask_station_info:
+      use_entities:
+        - station_identifier
+  - admin_list_all_trains
+  - admin_list_all_users
+  - admin_search_trains_by_source:
+      use_entities:
+        - from_location
+  - inform
+  - out_of_scope
+
+entities:
+  - train_number
+  - pnr_number
+  - from_location
+  - to_location
+  - travel_class
+  - user_id
+  - pnr_number_to_cancel
+  - station_identifier
+
+slots:
+  train_number:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: train_number
+  pnr_number:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pnr_number
+  from_location:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: from_location
+  to_location:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: to_location
+  travel_class:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: travel_class
+  user_id:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: user_id
+  pnr_number_to_cancel:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: pnr_number_to_cancel
+  station_identifier:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: station_identifier
+    # Optional: Add mapping from inform intent if using a form or specific logic
+    # - type: from_intent
+    #   intent: inform # or inform_station_identifier
+    #   value: True # This mapping is more relevant for forms
+
+responses:
+  utter_greet:
+  - text: "Hello! I am your railway assistant. How can I help you today?"
+  - text: "Hi there! How can I assist you with your railway queries?"
+
+  utter_goodbye:
+  - text: "Goodbye! Have a safe journey."
+  - text: "Take care! Feel free to ask if you have more questions later."
+
+  utter_iamabot:
+  - text: "I am a virtual assistant, powered by Rasa, here to help with railway information."
+
+  utter_you_are_welcome:
+  - text: "You're welcome!"
+  - text: "Happy to help!"
+  - text: "No problem at all."
+
+  utter_ask_capabilities:
+  - text: "I can help you with:\n- Checking train status by train number\n- Getting PNR status\n- Finding trains between stations\n- Checking train fares\n- Viewing your booking history (if you provide a user ID)\n- Cancelling a ticket (with PNR)\n- Getting information about railway stations."
+
+  utter_ask_train_number:
+  - text: "Sure, what is the train number you're interested in?"
+  - text: "Please provide the train number."
+
+  utter_ask_pnr_number:
+  - text: "Okay, please tell me your PNR number."
+  - text: "What is the PNR number you want to check?"
+
+  utter_ask_from_location:
+  - text: "Which city or station are you departing from?"
+  - text: "Please tell me the source station."
+
+  utter_ask_to_location:
+  - text: "And where are you travelling to?"
+  - text: "What is your destination station?"
+
+  utter_ask_travel_class:
+  - text: "Which travel class are you interested in (e.g., Sleeper, AC Third, CC)?"
+  - text: "Please specify the class for the fare."
+
+  utter_ask_user_id:
+  - text: "To show your booking history, I need your User ID. Could you please provide it?"
+  - text: "What is your User ID?"
+
+  utter_ask_pnr_to_cancel:
+  - text: "Sure, what is the PNR number of the ticket you wish to cancel?"
+  - text: "Please provide the PNR you want to cancel."
+
+  utter_ask_station_identifier:
+  - text: "Which station's information are you looking for? You can provide its name or code."
+  - text: "Please tell me the station name or code."
+
+  utter_default: # This is good practice to have, though stories use action_default_fallback
+  - text: "Sorry, I didn't quite understand that. I can help with train status, PNR status, finding trains, fares, booking history, ticket cancellation, and station information. How can I assist you?"
+  - text: "I'm not sure how to respond to that. Could you try rephrasing? I can help with railway queries."
+
+actions:
+  - action_get_train_status
+  - action_pnr_status
+  - action_find_trains
+  - action_train_fare
+  - action_booking_history
+  - action_cancel_ticket
+  - action_ask_station_info # Corresponds to the action in stories for ask_station_info
+  - action_list_all_trains
+  - action_list_all_user_details
+  - action_search_trains_by_source
+  - action_default_fallback # Used in stories for out_of_scope
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

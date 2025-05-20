@@ -1,0 +1,36 @@
+version: "3.1" # Or your RASA version
+recipe: default.v1 # Uses a pre-defined recipe for the pipeline
+language: en # Specify your language
+
+pipeline:
+# - name: SpacyNLP # If you want to use spaCy features
+#   model: "en_core_web_md"
+# - name: SpacyTokenizer # Use if SpacyNLP is used
+# - name: SpacyFeaturizer
+# - name: SpacyEntityExtractor
+
+# Default pipeline components (often sufficient)
+- name: WhitespaceTokenizer
+- name: RegexFeaturizer
+- name: LexicalSyntacticFeaturizer
+- name: CountVectorsFeaturizer
+- name: CountVectorsFeaturizer
+  analyzer: "char_wb"
+  min_ngram: 1
+  max_ngram: 4
+- name: DIETClassifier
+  epochs: 100   # You can tune this
+    # entity_recognition: True (default)
+    # intent_classification: True (default)
+  # - name: EntitySynonymMapper # If you define synonyms
+
+policies: # For dialogue management, not strictly NLU training but part of config
+- name: MemoizationPolicy
+- name: RulePolicy
+  # - name: UnexpecTEDIntentPolicy
+  #   max_history: 5
+  #   epochs: 100
+- name: TEDPolicy
+  max_history: 5
+  epochs: 100
+assistant_id: 20250513-220028-adventurous-user

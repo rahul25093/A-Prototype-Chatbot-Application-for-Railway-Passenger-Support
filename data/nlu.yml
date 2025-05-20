@@ -1,0 +1,599 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - good morning
+    - good evening
+    - hey there
+    - what's up
+    - greetings
+    - howdy
+    - yo
+    - Afternoon
+    - How are you?
+    - How's it going?
+    - What's new?
+    - Sup
+    - Alright?
+    - Good to interact with you
+    - Nice to talk to you
+    - How do you do?
+    - Hey, how are things?
+    - Ahoy
+    - Bonjour
+    - Ciao
+    - Konnichiwa
+    - Namaste
+    - Salaam
+    - How are you doing today?
+    - Hope you're having a good day
+    - It's me again
+    - Just saying hi
+    - Wanted to greet you
+    - Hey, can you help?
+    - Start
+    - Begin
+
+- intent: goodbye
+  examples: |
+    - bye
+    - goodbye
+    - see you around
+    - see you later
+    - cu
+    - talk to you later
+    - exit
+    - farewell
+    - I'm off
+    - Take care
+    - Adios
+    - Au revoir
+    - Ciao for now
+    - I'm out
+    - Gotta go
+    - Have a good one
+    - So long
+    - Until next time
+    - I'll be off then
+    - Signing off
+    - End session
+    - Disconnect
+    - I need to leave
+    - That's all for now
+    - Finished
+    - Done
+    - I'm done here
+    - Thanks, bye!
+    - I must be going
+    - Fare thee well
+    - I have to run
+    - Okay, I'm leaving
+    - Cheerio
+    - Catch you on the flip side
+    - I'm heading out
+    - Gotta jet
+    - Peace out
+    - Time for me to depart
+    - I am leaving
+    - End conversation
+    - Stop
+
+- intent: affirm
+  examples: |
+    - yes
+    - indeed
+    - of course
+    - that's right
+    - correct
+    - yup
+    - sure
+    - sounds good
+    - absolutely
+    - you bet
+    - Affirmative
+    - Certainly
+    - Definitely
+    - You got it
+    - That's it
+    - Exactly
+    - Precisely
+    - True
+    - Agreed
+    - I agree
+    - That's the one
+    - Positive
+    - Spot on
+    - Undoubtedly
+    - By all means
+    - Okay then
+    - Yeah
+    - Ya
+    - Mhm
+    - Uh-huh
+    - I concur
+    - Indeed it is
+    - As you say
+    - Fine
+    - Good
+    - Yes please
+    - Go ahead
+    - Okay, do it
+
+- intent: deny
+  examples: |
+    - no
+    - never
+    - I don't think so
+    - not really
+    - nope
+    - nah
+    - I disagree
+    - That's incorrect
+    - That's wrong
+    - Incorrect
+    - I doubt it
+    - No thanks
+    - No thank you
+    - Nah, I'm good
+    - False
+    - Don't do that
+    - Stop that
+    - I can't agree with that
+    - That's not right
+    - No, that's false
+    - I object
+    - Veto
+    - Pass
+    - Skip
+    - Count me out
+    - I refuse
+    - On the contrary
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what are you?
+    - Are you software?
+    - What is your nature?
+    - Are you some kind of AI?
+    - Who are you really?
+    - Do you have feelings?
+    - What kind of entity are you?
+    - Is this an automated response?
+    - Is this a computer program?
+    - Your identity?
+    - Can you think?
+    - Is there a human behind this?
+    - Who developed you?
+    - What is your origin?
+    - How were you created?
+    - Your type?
+    - Are you a virtual assistant?
+    - Are you a digital entity?
+    - Tell me about your existence
+    - What's your real identity?
+    - This is a bot, right?
+    - I'm speaking to AI, aren't I?
+    - Are you more than just a program?
+    - What is your species?
+    - Bot or not?
+    - Is this a pre-recorded message?
+    - Is this automated?
+
+- intent: thank_you
+  examples: |
+    - thanks
+    - thank you
+    - appreciate it
+    - thanks a lot
+    - much appreciated
+    - cheers
+    - That's very kind of you
+    - Thank you for your help
+    - Grateful for your assistance
+    - I'm grateful
+    - Much obliged
+    - You're a lifesaver
+    - Couldn't have done it without you
+    - I owe you one
+    - Ta
+    - Merci
+    - Gracias
+    - Danke
+    - Arigato
+    - Shukriya
+    - My gratitude
+    - Thank you for your time
+
+- intent: ask_capabilities
+  examples: |
+    - what can you do?
+    - how can you help me?
+    - what are your features?
+    - what services do you offer?
+    - tell me your capabilities
+    - tell me more about your functions
+    - What functions do you have?
+    - List your functions.
+    - What operations can you handle?
+    - What are you good for?
+    - What are your limitations?
+    - What functions are available?
+    - Tell me about yourself.
+    - What can I do with you?
+    - What actions can you take?
+    - Detail your functionalities.
+    - What tasks are you designed for?
+    - What are your operational parameters?
+    - Tell me about the things you can handle.
+    - What commands do you understand?
+    - What are your primary functions?
+
+
+- intent: ask_train_status
+  examples: |
+    - What is the status of train [10601](train_number)?
+    - train [10602](train_number) status
+    - current status for [10805](train_number)
+    - tell me about train [10611](train_number)
+    - is train [10604](train_number) on time?
+    - how is train [10801](train_number) running?
+    - update on train [10607](train_number)
+    - check status for train [10628](train_number)
+    - is [10615](train_number) cancelled?
+    - find out about train [10830](train_number)
+    - what's the operational status of [10855](train_number)
+    - train number [10620](train_number)
+    - Status of 34567 please
+    - How's 10002 doing?
+    - Is 10004 on schedule?
+    - What is the running information for 10008?
+    - Is 10010 delayed?
+    - What's up with 10013?
+    - Train 10023 information required.
+    - What's the story with train 10026?
+    - How is 10027 progressing?
+    - Is 10031 operational?
+
+# --- PNR Status ---
+- intent: ask_pnr_status
+  examples: |
+    - check my pnr status [6234567890](pnr_number)
+    - pnr [6234567891](pnr_number)
+    - what's the status for PNR [6234567900](pnr_number)?
+    - PNR enquiry for [6234567925](pnr_number)
+    - my PNR is [6234567934](pnr_number), what's its status?
+    - get pnr details for [6234567956](pnr_number)
+    - tell me about PNR [6234567970](pnr_number)
+    - booking status for pnr [6234568011](pnr_number)
+    - find my pnr [6234567905](pnr_number)
+    - pnr number [6234567913](pnr_number) status
+    - pnr 6234567891
+    - Check PNR 1234567890
+    - My PNR is 3456789012, check it.
+    - Can you check PNR 5678901234 for me?
+    - Is my ticket confirmed? PNR 2233445566.
+    - PNR 4455667788, what's the update?
+    - PNR 7788990011 details please.
+    - PNR check: 3030303030.
+    - My booking reference is 4040404040, status?
+    - Ticket status for 5050505050.
+    - Check the PNR: 6060606060.
+    - PNR 7070707070 - is it confirmed?
+    - What's the current status of PNR 5656565656?
+    - My PNR number is 6767676767.
+    - Check my reservation, PNR 1313131313.
+    - PNR 4646464646, current situation?
+    - Update me on PNR 5757575757.
+
+# --- Find Trains (Between Stations) ---
+- intent: find_trains
+  examples: |
+    - find trains from [New Delhi](from_location) to [Hyderabad](to_location)
+    - show me trains between [Bangalore](from_location) and [Mumbai](to_location)
+    - any trains from [Kolkata](from_location) to [Jaipur](to_location)?
+    - I want to go from [Pune](from_location) to [Lucknow](to_location)
+    - trains to [Chennai](to_location) from [Mumbai](from_location)
+    - list trains running from [Hyderabad](from_location) to [New Delhi](to_location)
+    - search for trains between [Jaipur](from_location) and [Chennai](to_location)
+    - I need a train from [Lucknow](from_location) to [Bangalore](to_location)
+    - what are the trains from [New Delhi](from_location) to [Kolkata](to_location)
+    - are there any trains available from [Pune](from_location) to [Mumbai](to_location)?
+    - trains [New Delhi](from_location) [Hyderabad](to_location)
+    - [Bangalore](from_location) to [Mumbai](to_location) trains
+    - Show trains Pune - Nagpur.
+    - What are the train services from Coimbatore to Madurai?
+    - Show trains for Guwahati to Dibrugarh.
+    - Travel options from Dehradun to Haridwar by train.
+    - Trains for Shimla from Kalka.
+    - Find all trains going from Siliguri to Darjeeling.
+    - Train schedules from Dhanbad to Bokaro.
+    - Find trains from Shirdi to Nasik Road.
+
+# --- Train Fare ---
+- intent: ask_train_fare
+  examples: |
+    - what's the fare for train [10601](train_number) in [Sleeper](travel_class) class?
+    - fare for [AC Third](travel_class) on train [10602](train_number)
+    - how much is a [General](travel_class) ticket for train [10603](train_number)?
+    - [10800](train_number) [CC](travel_class) fare
+    - price for [AC Second](travel_class) from [New Delhi](from_location) to [Bangalore](to_location) on train [10801](train_number)
+    - ticket cost for [10802](train_number) in [Sleeper](travel_class)
+    - train [10804](train_number) [AC First](travel_class) fare from [Jaipur](from_location) to [Hyderabad](to_location)
+    - what is the fare of [AC Second](travel_class) class in train [10805](train_number)?
+    - how much for [Sleeper](travel_class) on train [10606](train_number) from [Mumbai](from_location) to [Kolkata](to_location)?
+    - fare of train [10608](train_number) class [AC Third](travel_class)
+    - show me fare for train [10610](train_number) in [CC](travel_class)
+    - cost of [Sleeper](travel_class) ticket for [10612](train_number)
+    - I want to know the fare for [AC Second](travel_class) class for train [10601](train_number)
+    - fare for [Sleeper](travel_class) on train [10601](train_number) between [New Delhi](from_location) and [Hyderabad](to_location)
+    - find fare from [Pune](from_location) to [Mumbai](to_location) in [CC](travel_class)
+    - what's the fare in [Sleeper class](travel_class) from [New Delhi](from_location) to [Hyderabad](to_location)
+    - [Sleeper](travel_class) fare for [10601](train_number)
+    - [AC Third](travel_class) price on [10602](train_number)
+
+# --- Booking History ---
+- intent: ask_booking_history
+  examples: |
+    - show my booking history
+    - what are my bookings?
+    - my user id is [1](user_id), show history
+    - check bookings for user [15](user_id)
+    - Can you show my past tickets for user ID [22](user_id)?
+    - list my previous bookings, user [30](user_id)
+    - I want to see my ticket history, I am user [45](user_id)
+    - get all my booked tickets for user [5](user_id)
+    - show me what I booked, my id is [10](user_id)
+    - fetch booking history for user [1](user_id)
+    - My id is 60, show my trips
+    - My travel records, user 678.
+    - My user ID is 1000, show me my trips.
+
+# --- Cancel Ticket ---
+- intent: cancel_ticket
+  examples: |
+    - I want to cancel my ticket
+    - cancel PNR [6234567893](pnr_number_to_cancel)
+    - please cancel ticket with PNR [6234567904](pnr_number_to_cancel)
+    - ticket cancellation for [6234567920](pnr_number_to_cancel)
+    - I need to cancel my booking PNR [6234567923](pnr_number_to_cancel)
+    - cancel booking [6234567928](pnr_number_to_cancel)
+    - how do I cancel my ticket [6234567931](pnr_number_to_cancel)
+    - initiate cancellation for PNR [6234567935](pnr_number_to_cancel)
+    - can you cancel [6234567942](pnr_number_to_cancel)?
+    - I want to cancel the PNR [6234567949](pnr_number_to_cancel)
+    - My PNR for cancellation is 1010101011.
+    - Void PNR 9090909099.
+    - Need to get rid of PNR 9898989891.
+
+# --- Station Information ---
+- intent: ask_station_info
+  examples: |
+    - tell me about [New Delhi station](station_identifier)
+    - tell me about [New Delhi Railway Station](station_identifier)
+    - info on [HYB](station_identifier) station
+    - what is [CSMT](station_identifier)?
+    - details for [Jaipur Junction](station_identifier)
+    - station [PUNE](station_identifier) information
+    - give me information about [SBC](station_identifier) station
+    - what facilities are at [Howrah Junction](station_identifier)?
+    - find station [MAS](station_identifier)
+    - details about [LKO](station_identifier) station
+    - station info for [NDLS](station_identifier)
+    - [Kolkata Chitpur](station_identifier) station details
+    - [Secunderabad Junction](station_identifier)
+    - what is the [New Delhi](station_identifier) station like
+    - about [Mumbai Central](station_identifier)
+    - info about [Bangalore City Jn](station_identifier) station
+    - station [New Delhi](station_identifier)
+    - tell me about [anand vihar terminal station](station_identifier)
+    - info for [anand vihar terminal](station_identifier)
+    - what is [anand vihar](station_identifier) station
+    - [Anand Vihar Trm](station_identifier)
+    - [ANVT](station_identifier) station details
+
+# --- Admin/List All type Intents ---
+- intent: admin_list_all_trains
+  examples: |
+    - list all trains
+    - show me every train
+    - display all train schedules
+    - get a list of all trains
+    - give me all train details
+    - report on all available trains
+    - Show me the entire train database.
+    - Generate a complete train listing.
+    - Full train inventory report.
+    - Provide a comprehensive list of trains.
+    - Compile all train information.
+    - Show me the train master list.
+    - Complete train data required.
+    - Show the full train catalog.
+    - Give me the master train file.
+    - Admin command: Show all trains.
+    - Dump all train information.
+    - What are all the trains available?
+    - Present all train data.
+    - Show me every available train.
+    - Can I get all train information?
+    - Entire train list.
+    - Provide all train entries.
+
+- intent: admin_list_all_users
+  examples: |
+    - show all user details
+    - list every user
+    - display all registered users
+    - get a list of all users
+    - give me all user data
+    - show all user details
+    - get a list of all users
+    - show me the complete user list
+    - export all user information
+    - Show me the entire user database.
+    - Generate a complete user listing.
+    - Full user inventory report.
+    - Provide a comprehensive list of users.
+    - Fetch all user records.
+    - Compile all user information.
+    - Show me the user master list.
+    - Get full user data dump.
+    - Show the full user catalog.
+    - Enumerate all users.
+    - Give me the master user file.
+    - Pull up all user entries.
+    - Let's see all the users.
+    - Admin command: Show all users.
+    - Dump all user information.
+    - Who are all the registered users?
+    - All users in the database.
+    - The complete list of users, please.
+    - Can I get all user information?
+    - Get me all users.
+    - Admin: Get all user details.
+    - Show me the full list of registered users.
+    - I want to see every user account.
+    - Give me a dump of all users.
+    - Show all user profiles.
+
+- intent: admin_search_trains_by_source
+  examples: |
+    - show all trains from [New Delhi](from_location)
+    - list trains departing [Mumbai](from_location)
+    - what trains start from [Kolkata](from_location)?
+    - give me all departures from [Pune](from_location)
+    - trains originating at [Hyderabad](from_location)
+    - from [Bangalore](from_location) show all trains
+    - Admin: trains from Delhi.
+    - Admin search: source Bangalore City.
+    - Trains with source Hyderabad Decan.
+    - Find all trains leaving Ahmedabad.
+    - List departures from Lucknow NR.
+    - Source station Kanpur Central, list trains.
+    - Get trains with starting point Bhopal.
+    - List trains from Vadodara as source.
+    - What trains commence from Ludhiana?
+    - Source Guwahati, show all trains.
+    - Trains from Coimbatore Jn source.
+    - Admin search for trains from Jammu Tawi.
+    - Get all trains with origin Kota Jn.
+
+# --- Inform Intent (Crucial for multi-turn dialogues) ---
+- intent: inform
+  examples: |
+    - [8](user_id)
+    - my user id is [15](user_id)
+    - it is [1](user_id)
+    - user id [22](user_id)
+    - the id is [30](user_id)
+    - [45](user_id) is my id
+    - [5](user_id) please
+    - just [10](user_id)
+    - it's [7](user_id)
+    - the user id is [12](user_id)
+    - [6234567893](pnr_number_to_cancel)
+    - the pnr is [6234567904](pnr_number_to_cancel)
+    - it's [6234567920](pnr_number_to_cancel)
+    - PNR number [6234567923](pnr_number_to_cancel)
+    - my pnr for cancellation is [6234567928](pnr_number_to_cancel)
+    - [6234567931](pnr_number_to_cancel) please
+    - just [6234567935](pnr_number_to_cancel)
+    - [New Delhi](station_identifier)
+    - [NDLS](station_identifier)
+    - the station is [Jaipur Junction](station_identifier)
+    - it is [HYB](station_identifier)
+    - [Anand Vihar Terminal](station_identifier)
+    - [ANVT](station_identifier)
+    - [Mumbai Central](station_identifier) please
+    - for [Kolkata Chitpur](station_identifier)
+    - [10601](train_number)
+    - train number is [10602](train_number)
+    - it's [10805](train_number)
+    - the train is [10607](train_number)
+    - [6234567890](pnr_number)
+    - pnr [6234567891](pnr_number)
+    - it's [6234567900](pnr_number)
+    - from [New Delhi](from_location)
+    - [Mumbai](from_location)
+    - departing from [Kolkata](from_location)
+    - to [Hyderabad](to_location)
+    - [Chennai](to_location)
+    - arriving at [Jaipur](to_location)
+    - [Sleeper](travel_class) class
+    - [AC Third](travel_class)
+    - for [General](travel_class)
+    - [CC](travel_class) please
+    - 6234569900 is the PNR to cancel
+    - station name Bhopal
+    - For train 12560
+    - Pnr for cancellation: 4433221100
+    - Origin Mumbai
+    - My pnr for status check is 8765432109
+    - I want to go from Surat
+    - Station code is MAS
+
+- intent: out_of_scope
+  examples: |
+    - what is the weather like tomorrow then please  
+    - what is your favorite color then maybe     
+    - what's the weather like?
+    - tell me a joke
+    - what is the weather like tomorrow then please
+    - can you order pizza for me?
+    - what is the meaning of life?
+    - sing a song
+    - tell me about the president
+    - Can you book a flight for me?
+    - What's the capital of France?
+    - Tell me a story.
+    - How to make biryani?
+    - Who won the match yesterday?
+    - Recommend a good movie.
+    - What is 2+2?
+    - Translate 'hello' to Spanish.
+    - Set a reminder for me.
+    - Play some music.
+    - What time is it?
+    - What's your name?
+    - Do you like trains?
+    - Are you happy?
+    - Can you help me with my homework?
+    - Tell me the news headlines.
+    - What is the stock market doing?
+    - Can you call someone for me?
+    - Find a nearby restaurant.
+    - How old are you?
+    - Where do you live?
+    - Can you give me travel advice for Europe?
+    - What's the meaning of your name?
+    - Can you write a poem?
+    - Let's play a game.
+    - What are your hobbies?
+    - Do you dream?
+    - Can you tell me about black holes?
+    - Who is the prime minister of India?
+    - What is quantum physics?
+    - Can you help me with a personal problem?
+    - I'm feeling sad.
+    - What should I have for dinner?
+    - Can you do my shopping?
+    - Find a recipe for pasta.
+    - What are the winning lottery numbers?
+    - Can you predict the future?
+    - Let's talk about philosophy.
+    - Do you believe in ghosts?
+    - What is your opinion on politics?
+    - Can you drive a car?
+    - What is love?
+    - What are you wearing?
+    - How do I fix my computer?
+    - Can you tell me current gold prices?
+    - What is the best way to learn coding?
+    - Send an email for me.

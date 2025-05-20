@@ -1,0 +1,305 @@
+version: "3.1"
+
+stories:
+
+- story: Greet and ask capabilities
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ask_capabilities
+  - action: utter_ask_capabilities
+
+- story: User asks for train status directly
+  steps:
+  - intent: ask_train_status
+    entities:
+    - train_number: "10601"
+  - slot_was_set:
+    - train_number: "10601"
+  - action: action_get_train_status
+
+- story: User asks for train status (bot needs to ask for train number)
+  steps:
+  - intent: ask_train_status
+  - action: utter_ask_train_number
+  - intent: inform
+    entities:
+    - train_number: "10602"
+  - slot_was_set:
+    - train_number: "10602"
+  - action: action_get_train_status
+
+- story: PNR status with PNR provided
+  steps:
+  - intent: ask_pnr_status
+    entities:
+    - pnr_number: "6234567890"  # Example PNR
+  - slot_was_set: # Ensures the slot is filled by the entity mapping
+    - pnr_number: "6234567890"
+  - action: action_pnr_status # Directly call the action
+
+- story: PNR status without PNR initially (form-like behavior needed)
+  steps:
+  - intent: ask_pnr_status  # User asks without PNR
+  - action: utter_ask_pnr_number # Bot asks for PNR
+  - intent: inform # Or a more specific intent if user just types the number
+    entities:
+    - pnr_number: "1234567890"
+  - slot_was_set:
+    - pnr_number: "1234567890"
+  - action: action_pnr_status
+
+- story: User finds trains between stations directly
+  steps:
+  - intent: find_trains
+    entities:
+    - from_location: "New Delhi"
+    - to_location: "Hyderabad"
+  - slot_was_set:
+    - from_location: "New Delhi"
+    - to_location: "Hyderabad"
+  - action: action_find_trains
+
+- story: User finds trains (bot asks for source then destination)
+  steps:
+  - intent: find_trains
+  - action: utter_ask_from_location
+  - intent: inform
+    entities:
+    - from_location: "Bangalore"
+  - slot_was_set:
+    - from_location: "Bangalore"
+  - action: utter_ask_to_location
+  - intent: inform
+    entities:
+    - to_location: "Mumbai"
+  - slot_was_set:
+    - to_location: "Mumbai"
+  - action: action_find_trains
+
+- story: User finds trains (provides source, bot asks for destination)
+  steps:
+  - intent: find_trains
+    entities:
+    - from_location: "Kolkata"
+  - slot_was_set:
+    - from_location: "Kolkata"
+  - action: utter_ask_to_location
+  - intent: inform
+    entities:
+    - to_location: "Jaipur"
+  - slot_was_set:
+    - to_location: "Jaipur"
+  - action: action_find_trains
+
+- story: User asks for train fare directly (train number and class)
+  steps:
+  - intent: ask_train_fare
+    entities:
+    - train_number: "10601"
+    - travel_class: "Sleeper"
+  - slot_was_set:
+    - train_number: "10601"
+    - travel_class: "Sleeper"
+  - action: action_train_fare
+
+- story: User asks for train fare (provides train_number, bot asks for class)
+  steps:
+  - intent: ask_train_fare
+    entities:
+    - train_number: "10602"
+  - slot_was_set:
+    - train_number: "10602"
+  - action: utter_ask_travel_class
+  - intent: inform
+    entities:
+    - travel_class: "AC Third"
+  - slot_was_set:
+    - travel_class: "AC Third"
+  - action: action_train_fare
+
+- story: User asks for train fare (provides class, bot asks for train_number)
+  steps:
+  - intent: ask_train_fare
+    entities:
+    - travel_class: "General"
+  - slot_was_set:
+    - travel_class: "General"
+  - action: utter_ask_train_number
+  - intent: inform
+    entities:
+    - train_number: "10603"
+  - slot_was_set:
+    - train_number: "10603"
+  - action: action_train_fare
+
+- story: User asks for train fare (provides all info including from/to for context)
+  steps:
+  - intent: ask_train_fare
+    entities:
+    - train_number: "10801"
+    - travel_class: "AC Second"
+    - from_location: "New Delhi"
+    - to_location: "Bangalore"
+  - slot_was_set:
+    - train_number: "10801"
+    - travel_class: "AC Second"
+    - from_location: "New Delhi"
+    - to_location: "Bangalore"
+  - action: action_train_fare
+
+- story: User asks for booking history directly with user_id
+  steps:
+  - intent: ask_booking_history
+    entities:
+    - user_id: "1"
+  - slot_was_set:
+    - user_id: "1"
+  - action: action_booking_history
+
+- story: User asks for booking history, bot prompts, user provides ID # Renamed for clarity
+  steps:
+  - intent: ask_booking_history
+  - action: utter_ask_user_id
+  - intent: inform # User provides "8" or "15" etc.
+    entities:
+    - user_id: "15" # Example entity value
+  - slot_was_set:
+    - user_id: "15"
+  - action: action_booking_history
+
+- story: User cancels ticket directly with PNR
+  steps:
+  - intent: cancel_ticket
+    entities:
+    - pnr_number_to_cancel: "6234567893"
+  - slot_was_set:
+    - pnr_number_to_cancel: "6234567893"
+  - action: action_cancel_ticket
+
+- story: User wants to cancel ticket, bot prompts, user provides PNR # Renamed for clarity
+  steps:
+  - intent: cancel_ticket
+  - action: utter_ask_pnr_to_cancel
+  - intent: inform # User provides "6234567904" etc.
+    entities:
+    - pnr_number_to_cancel: "6234567904" # Example entity value
+  - slot_was_set:
+    - pnr_number_to_cancel: "6234567904"
+  - action: action_cancel_ticket
+
+# STORIES FOR STATION INFO
+- story: User asks for station information directly with full station name
+  steps:
+  - intent: ask_station_info
+    entities:
+    - station_identifier: "New Delhi Railway Station"
+  - slot_was_set:
+    - station_identifier: "New Delhi Railway Station"
+  - action: action_ask_station_info
+
+- story: User asks for station information with code
+  steps:
+  - intent: ask_station_info
+    entities:
+    - station_identifier: "NDLS"
+  - slot_was_set:
+    - station_identifier: "NDLS"
+  - action: action_ask_station_info
+
+- story: User asks for station info vaguely, bot asks, user provides station name
+  # This story handles the exact problematic scenario
+  steps:
+  - intent: ask_station_info
+  - action: utter_ask_station_identifier
+  - intent: inform # User provides "New Delhi" or "Jaipur Junction" etc.
+    entities:
+    - station_identifier: "New Delhi" # Example entity value
+  - slot_was_set:
+    - station_identifier: "New Delhi"
+  - action: action_ask_station_info
+
+- story: User asks for station info vaguely, bot asks, user provides station code
+  steps:
+  - intent: ask_station_info
+  - action: utter_ask_station_identifier
+  - intent: inform # User provides "HYB" or "NDLS" etc.
+    entities:
+    - station_identifier: "HYB" # Example entity value
+  - slot_was_set:
+    - station_identifier: "HYB"
+  - action: action_ask_station_info
+# END OF STORIES FOR STATION INFO
+
+- story: Admin lists all trains
+  steps:
+  - intent: admin_list_all_trains
+  - action: action_list_all_trains
+
+- story: Admin lists all users
+  steps:
+  - intent: admin_list_all_users
+  - action: action_list_all_user_details
+
+- story: Admin searches trains by source
+  steps:
+  - intent: admin_search_trains_by_source
+    entities:
+    - from_location: "New Delhi"
+  - slot_was_set:
+    - from_location: "New Delhi"
+  - action: action_search_trains_by_source
+
+- story: User says thanks
+  steps:
+  - intent: thank_you
+  - action: utter_you_are_welcome
+
+- story: User says goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: Bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- story: Full interaction for finding a train and then its fare
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: find_trains
+    entities:
+    - from_location: "Pune"
+    - to_location: "Mumbai"
+  - slot_was_set:
+    - from_location: "Pune"
+    - to_location: "Mumbai"
+  - action: action_find_trains
+  - intent: ask_train_fare
+    entities:
+    - train_number: "10610"
+    - travel_class: "CC"
+  - slot_was_set:
+    - train_number: "10610"
+    - travel_class: "CC"
+  - action: action_train_fare
+  - intent: thank_you
+  - action: utter_you_are_welcome
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: User asks something out of scope
+  steps:
+  - intent: out_of_scope
+  - action: action_default_fallback
+
+- story: Cancel ticket with confirmation step (conceptual)
+  steps:
+  - intent: cancel_ticket
+    entities:
+    - pnr_number_to_cancel: "6234567920"
+  - slot_was_set:
+    - pnr_number_to_cancel: "6234567920"
+  - action: action_cancel_ticket

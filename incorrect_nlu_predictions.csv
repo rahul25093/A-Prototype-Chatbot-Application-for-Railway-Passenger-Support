@@ -1,0 +1,67 @@
+row_number,user_input,expected_intent,predicted_intent,confidence
+34,Hi bot,greet,bot_challenge,0.8555781841278076
+53,"Hello, I have a question.",greet,goodbye,0.9918815493583679
+66,See ya,goodbye,affirm,0.9580832123756409
+79,Time to go,goodbye,out_of_scope,0.5946925282478333
+90,"It was nice talking to you, bye",goodbye,greet,0.9918930530548096
+120,Alright,affirm,greet,0.9999970197677612
+121,Roger that,affirm,deny,0.8260773420333862
+141,Sounds about right,affirm,bot_challenge,0.6043396592140198
+142,That works for me,affirm,out_of_scope,0.897362470626831
+170,Nuh-uh,deny,affirm,0.9977230429649353
+171,Negative,deny,affirm,0.9063166975975037
+173,Not at all,deny,admin_list_all_trains,0.8588670492172241
+181,Not this time,deny,bot_challenge,0.571482241153717
+182,Unlikely,deny,affirm,0.6104362607002258
+191,By no means,deny,affirm,0.8483118414878845
+192,Certainly not,deny,affirm,0.9063403010368347
+208,Not interested,deny,greet,0.7769820094108582
+232,Are you conscious?,bot_challenge,ask_booking_history,0.3810436427593231
+234,Are you just code?,bot_challenge,inform,0.9282118678092957
+245,Are you artificial intelligence?,bot_challenge,greet,0.5591267943382263
+291,"That helps, thanks",thank_you,deny,0.6393964886665344
+300,Thanks for the info,thank_you,deny,0.7095463275909424
+305,"Thanks, that's all I needed",thank_you,admin_list_all_trains,0.4836299419403076
+307,Thank you for the clarification,thank_you,inform,0.8585926294326782
+308,"Okay, thanks",thank_you,affirm,0.5611462593078613
+334,What are your skills?,ask_capabilities,bot_challenge,0.9460328817367554
+344,What's your purpose?,ask_capabilities,bot_challenge,0.8949921131134033
+349,What is your scope?,ask_capabilities,bot_challenge,0.9913923740386963
+351,How do you work?,ask_capabilities,out_of_scope,0.9708131551742554
+363,What utility do you have?,ask_capabilities,bot_challenge,0.9432032108306885
+365,How may you help me today?,ask_capabilities,greet,0.9999569654464722
+369,What's your range of assistance?,ask_capabilities,thank_you,0.7303073406219482
+420,Track train 10028.,ask_train_status,inform,0.7418813109397888
+425,Arrival/Departure status for 10033?,ask_train_status,inform,0.6596399545669556
+492,trains from Ahmedabad to Surat please,find_trains,inform,0.697418749332428
+500,Search trains Surat to Vadodara.,find_trains,admin_search_trains_by_source,0.994312047958374
+501,What trains go from Kanpur to Allahabad?,find_trains,admin_search_trains_by_source,0.6969764828681946
+503,Train search: Ludhiana to Amritsar.,find_trains,admin_search_trains_by_source,0.9948923587799072
+521,Show me available trains: Aligarh to Bareilly.,find_trains,admin_list_all_trains,0.9453162550926208
+532,Trains from Jammu Tawi to Udhampur.,find_trains,admin_search_trains_by_source,0.9979982972145081
+576,How much is AC First Class from Ahmedabad to Surat?,ask_train_fare,inform,0.7377763986587524
+583,Cost for 3A for train journey from Nagpur to Wardha.,ask_train_fare,find_trains,0.5726656317710876
+609,Fetch my ticket log for user 707.,ask_booking_history,ask_pnr_status,0.5324102640151978
+615,User 444: Show all past journeys.,ask_booking_history,admin_list_all_users,0.594219446182251
+627,"User 789, can you find my old tickets?",ask_booking_history,out_of_scope,0.7632277011871338
+661,Could you cancel 8899001123 for me?,cancel_ticket,inform,0.5925299525260925
+663,My PNR for cancellation is 1010101011.,cancel_ticket,inform,0.9585595726966858
+669,Process cancellation for 4040404044.,cancel_ticket,inform,0.6996629238128662
+670,I no longer need my ticket PNR 5050505055.,cancel_ticket,ask_pnr_status,0.9719090461730957
+672,The PNR I want to cancel is 7070707077.,cancel_ticket,inform,0.6296200752258301
+688,I want to make a cancellation for PNR 1313131300.,cancel_ticket,inform,0.7630534172058105
+690,Is it possible to cancel PNR 3535353500?,cancel_ticket,inform,0.8504957556724548
+717,what can you tell me about Lucknow Ne?,ask_station_info,ask_capabilities,0.9903445839881897
+734,Tell me about Kanpur Central (CNB).,ask_station_info,admin_search_trains_by_source,0.9546433687210083
+747,Tell me about New Jalpaiguri (NJP).,ask_station_info,find_trains,0.9629111886024475
+872,Show me trains with origin Secunderabad.,admin_search_trains_by_source,ask_station_info,0.7767636179924011
+877,Trains beginning their route at Indore.,admin_search_trains_by_source,greet,0.7918409705162048
+888,List trains for which Madurai Jn is the origin.,admin_search_trains_by_source,find_trains,0.8240602016448975
+895,Show trains beginning at Kalka.,admin_search_trains_by_source,find_trains,0.8371590971946716
+920,PNR number 6234567923,inform,ask_pnr_status,0.5636961460113525
+940,pnr 6234567891,inform,ask_pnr_status,0.6682649254798889
+942,PNR 6234569999,inform,ask_pnr_status,0.7986645102500916
+956,"Yes, it's Patna",inform,affirm,0.9990478157997131
+959,PNR 5555555555,inform,ask_pnr_status,0.7986645102500916
+965,Class preference 3A,inform,ask_pnr_status,0.9908478260040283
+967,My pnr for status check is 8765432109,inform,ask_pnr_status,0.878110408782959
