@@ -88,14 +88,20 @@ rasa shell
 ```bash
 pip install mysql connector
 ```
+6. Copy and run railway_chatbot database from repo in mysql workbench
+   
+7. For running action.py file
+ ```bash
+ rasa run actions
+ ```
 
-6. For running chatbot in frontend
+8. For running chatbot in frontend
 ```bash
 rasa run --enable-api
 rasa run --enable-api --cors "*" --debug
 ```
 
-7. For testing
+9. For testing
 ```bash
 python rouge_bert.py 
 python intent.py 
