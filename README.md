@@ -30,20 +30,33 @@ A conversational AI chatbot built using [Rasa Open Source](https://rasa.com/) to
 
 
 
+
 ---
 
 ## 🚀 Features
 
-- 🔍 Train search and schedule
-- 💺 Seat availability and train types
-- 💸 Fare inquiry
-- 🧾 PNR status check
-- 🍱 Food and 📶 Wi-Fi availability
-- 🙋 Complaint registration and refund policies
-- 🤖 Custom action server using Gemini API for dynamic SQL generation
-- 🧠 Fuzzy search for station names
+### 🔹 Passenger Features
+- 🔍 **ask_train_status** – Get real-time status of any train
+- 🧾 **ask_pnr_status** – Check PNR status for ticket confirmation
+- 🚆 **find_trains** – Search for available trains between stations
+- 💰 **ask_train_fare** – Check fare details for selected trains
+- 🧳 **ask_booking_history** – Retrieve a user's past bookings
+- ❌ **cancel_ticket** – Cancel a train ticket
+- 🏢 **ask_station_info** – Get information about a station
+
+### 🔹 Admin Features
+- 📋 **admin_list_all_trains** – List all trains in the system
+- 👥 **admin_list_all_users** – List all registered users
+- 🔎 **admin_search_trains_by_source** – Search trains by source station
+
+### 🔹 Other Capabilities
+- 🤖 Custom actions with Gemini API for dynamic SQL generation
+- 🧠 Fuzzy search using RapidFuzz for station name matching
+- 🗄️ MySQL-based structured train database
+- 🧩 Modular, scalable, and easy to extend
 
 ---
+
 
 ## 🛠️ Installation & Setup
 
